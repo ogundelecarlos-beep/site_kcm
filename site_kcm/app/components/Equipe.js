@@ -1,0 +1,14 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { equipe } from '../content/site.js';
+import { useRevelar } from '../hooks/useRevelar.js';
+import { IconeWhatsapp } from './Icones.js';
+function Cartao({ membro, indice }) {
+    const bloco = useRevelar('0px 0px -10% 0px');
+    return (_jsxs("li", { ref: bloco.ref, className: `membro ${bloco.className}`, style: { transitionDelay: bloco.visivel ? `${indice * 0.1}s` : '0s' }, children: [_jsxs("div", { className: "membro__moldura", children: [_jsxs("span", { className: "membro__papel-tag", children: [_jsx("i", { "aria-hidden": "true" }), indice === 0 ? 'Atendimento' : 'Desenvolvimento'] }), _jsxs("picture", { children: [_jsx("source", { srcSet: membro.fotoWebp, type: "image/png" }), _jsx("img", { className: "membro__foto", src: membro.foto, alt: membro.alt, width: 800, height: 1067, loading: "lazy", decoding: "async" })] })] }), _jsx("h3", { className: "membro__nome", children: membro.nome }), _jsx("p", { className: "membro__papel", children: membro.papel }), _jsx("p", { className: "membro__descricao", children: membro.descricao }), membro.whatsapp && (_jsxs("a", { className: "membro__contato", href: membro.whatsapp, target: "_blank", rel: "noopener noreferrer", children: [_jsx(IconeWhatsapp, { tamanho: 15 }), membro.telefoneExibicao] }))] }));
+}
+export function Equipe() {
+    const cabecalho = useRevelar();
+    const nota = useRevelar();
+    return (_jsx("section", { className: "secao equipe", id: "equipe", "aria-labelledby": "equipe-titulo", children: _jsxs("div", { className: "container", children: [_jsxs("div", { ref: cabecalho.ref, className: cabecalho.className, children: [_jsx("p", { className: "rotulo", children: "Equipe" }), _jsx("h2", { className: "secao__titulo", id: "equipe-titulo", children: "Quem conversa e quem constr\u00F3i \u2014 os dois dispon\u00EDveis." }), _jsx("p", { className: "secao__intro", children: "A divis\u00E3o entre relacionamento e desenvolvimento existe para que ningu\u00E9m fique esperando: enquanto o projeto avan\u00E7a no c\u00F3digo, o contato com voc\u00EA continua aberto." })] }), _jsx("ul", { className: "equipe__grade", children: equipe.map((m, i) => (_jsx(Cartao, { membro: m, indice: i }, m.nome))) }), _jsxs("p", { ref: nota.ref, className: `equipe__nota ${nota.className}`, children: [_jsx("strong", { children: "Como isso funciona na pr\u00E1tica:" }), " o Miguel entende o que o seu neg\u00F3cio precisa e registra o escopo; o Carlos e o Kauan desenvolvem a partir desse registro. Quando surge uma d\u00FAvida t\u00E9cnica durante o projeto, voc\u00EA fala diretamente com quem est\u00E1 construindo."] })] }) }));
+}
+//# sourceMappingURL=Equipe.js.map

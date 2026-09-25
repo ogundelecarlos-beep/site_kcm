@@ -1,0 +1,519 @@
+/* ==========================================================================
+   Abertura (hero) + demonstração conceitual
+   ========================================================================== */
+
+.abertura {
+  position: relative;
+  padding-top: clamp(7rem, 5rem + 9vw, 11rem);
+  padding-bottom: clamp(3.5rem, 2rem + 6vw, 7rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.abertura__fundo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.abertura__fundo .brilho--a {
+  top: -22%;
+  right: -12%;
+  width: min(62vw, 720px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(20, 115, 230, 0.4) 0%, rgba(20, 115, 230, 0) 68%);
+}
+
+.abertura__fundo .brilho--b {
+  bottom: -30%;
+  left: -18%;
+  width: min(52vw, 560px);
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(10, 35, 66, 0.9) 0%, rgba(10, 35, 66, 0) 70%);
+}
+
+/* malha discreta */
+.abertura__malha {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(var(--linha) 1px, transparent 1px),
+    linear-gradient(90deg, var(--linha) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 12%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 12%, transparent 72%);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.abertura__grade {
+  display: grid;
+  gap: clamp(2.75rem, 1.5rem + 5vw, 4.5rem);
+  align-items: start;
+}
+
+/* --- coluna de texto ------------------------------------------------------ */
+
+.abertura__etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.42rem 0.95rem 0.42rem 0.5rem;
+  border: 1px solid var(--linha-forte);
+  border-radius: 999px;
+  background: rgba(245, 247, 250, 0.03);
+  font-size: var(--t-mini);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--texto-medio);
+}
+
+.abertura__pulso {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  margin-left: 0.35rem;
+  border-radius: 50%;
+  background: var(--azul-eletrico);
+}
+
+.abertura__pulso::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--azul-eletrico);
+  opacity: 0;
+  animation: pulso 2.8s var(--curva) infinite;
+}
+
+@keyframes pulso {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.abertura__titulo {
+  margin-top: 1.6rem;
+  font-size: var(--t-display);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.abertura__titulo span {
+  display: block;
+}
+
+.abertura__titulo .destaque {
+  background: var(--gradiente-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.06em;
+}
+
+.abertura__texto {
+  margin-top: 1.75rem;
+  max-width: 52ch;
+  font-size: var(--t-corpo-g);
+  line-height: 1.7;
+  color: var(--texto-medio);
+}
+
+.abertura__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.25rem;
+}
+
+.abertura__acoes .botao {
+  flex: 1 1 auto;
+  min-width: 15.5rem;
+}
+
+.abertura__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.6rem;
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--linha);
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+}
+
+.abertura__rodape span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.abertura__rodape svg {
+  flex: none;
+  color: var(--azul-eletrico);
+}
+
+/* ==========================================================================
+   Demonstração conceitual
+   ========================================================================== */
+
+.demo {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.demo__controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.demo__chips {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.28rem;
+  background: rgba(245, 247, 250, 0.04);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+}
+
+.demo__chip {
+  padding: 0.42rem 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: color 0.25s var(--curva), background-color 0.25s var(--curva);
+}
+
+.demo__chip:hover {
+  color: var(--texto);
+}
+
+.demo__chip[aria-selected='true'] {
+  background: var(--gradiente-texto);
+  color: var(--preto);
+}
+
+.demo__dispositivo {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.28rem;
+  background: rgba(245, 247, 250, 0.04);
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+}
+
+.demo__disp-botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: color 0.25s var(--curva), background-color 0.25s var(--curva);
+}
+
+.demo__disp-botao[aria-pressed='true'] {
+  background: rgba(245, 247, 250, 0.1);
+  color: var(--texto);
+}
+
+/* --- moldura -------------------------------------------------------------- */
+
+.demo__palco {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: clamp(0.9rem, 0.5rem + 1.5vw, 1.5rem);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: linear-gradient(170deg, rgba(10, 35, 66, 0.55) 0%, rgba(5, 7, 10, 0.4) 55%);
+  box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.9);
+}
+
+.demo__palco::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% 0%,
+    rgba(0, 168, 255, 0.16) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.demo__moldura {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--linha-forte);
+  border-radius: 12px;
+  background: #080b11;
+  overflow: hidden;
+  transition: max-width 0.65s var(--curva), border-radius 0.5s var(--curva);
+}
+
+.demo__moldura[data-dispositivo='celular'] {
+  max-width: 260px;
+  border-radius: 24px;
+}
+
+.demo__barra {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--linha);
+  background: rgba(245, 247, 250, 0.03);
+}
+
+.demo__pontos {
+  display: flex;
+  gap: 4px;
+}
+
+.demo__pontos i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(245, 247, 250, 0.16);
+}
+
+.demo__endereco {
+  flex: 1;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(245, 247, 250, 0.05);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  color: var(--texto-suave);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- tela: blocos de layout ---------------------------------------------- */
+
+.demo__tela {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  padding: 12px;
+  min-height: 330px;
+  align-content: start;
+  transition: min-height 0.5s var(--curva);
+}
+
+.demo__moldura[data-dispositivo='celular'] .demo__tela {
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 420px;
+  gap: 7px;
+  padding: 10px;
+}
+
+.bloco {
+  --atraso: 0ms;
+  border-radius: 6px;
+  background: rgba(245, 247, 250, 0.055);
+  border: 1px solid rgba(245, 247, 250, 0.05);
+  animation: bloco-entrar 0.6s var(--curva) both;
+  animation-delay: var(--atraso);
+  min-height: 12px;
+}
+
+@keyframes bloco-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+}
+
+.bloco--nav {
+  grid-column: 1 / -1;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  background: rgba(245, 247, 250, 0.04);
+}
+
+.bloco__marca {
+  width: 34px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--gradiente);
+}
+
+.bloco__itens {
+  display: flex;
+  gap: 5px;
+}
+
+.bloco__itens i {
+  width: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(245, 247, 250, 0.22);
+}
+
+.bloco--titulo {
+  display: grid;
+  gap: 6px;
+  align-content: center;
+  padding: 10px;
+  background: transparent;
+  border: 0;
+}
+
+.bloco__linha {
+  height: 9px;
+  border-radius: 4px;
+  background: rgba(245, 247, 250, 0.28);
+}
+
+.bloco__linha--g {
+  height: 13px;
+  background: rgba(245, 247, 250, 0.5);
+}
+
+.bloco__linha--grad {
+  background: var(--gradiente);
+}
+
+.bloco__linha--curta {
+  width: 55%;
+}
+
+.bloco__linha--media {
+  width: 78%;
+}
+
+.bloco__linha--fina {
+  height: 5px;
+  background: rgba(245, 247, 250, 0.16);
+}
+
+.bloco--midia {
+  background: linear-gradient(140deg, rgba(20, 115, 230, 0.4), rgba(0, 168, 255, 0.14));
+  border-color: rgba(0, 168, 255, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.bloco--midia::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), transparent 55%);
+}
+
+.bloco--cartao {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  padding: 8px;
+}
+
+.bloco--cartao i {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--gradiente);
+  opacity: 0.85;
+}
+
+.bloco--cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  background: var(--gradiente-texto);
+  border: 0;
+}
+
+.bloco--cta i {
+  width: 46px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(5, 7, 10, 0.72);
+}
+
+.bloco--texto {
+  display: grid;
+  gap: 5px;
+  align-content: center;
+  padding: 9px;
+  background: transparent;
+  border: 0;
+}
+
+.bloco--rodape {
+  grid-column: 1 / -1;
+  height: 18px;
+  background: rgba(245, 247, 250, 0.035);
+}
+
+.demo__legenda {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: var(--t-mini);
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+
+.demo__legenda svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--texto-suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloco {
+    animation: none;
+  }
+
+  .abertura__pulso::after {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* --- grade responsiva da abertura ---------------------------------------- */
+
+@media (min-width: 1000px) {
+  .abertura__grade {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    align-items: center;
+  }
+
+  .abertura__demo {
+    margin-top: 2.5rem;
+  }
+}

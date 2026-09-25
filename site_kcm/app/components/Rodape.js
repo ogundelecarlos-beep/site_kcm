@@ -1,0 +1,9 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { contatos, empresa, navegacao, rodape } from '../content/site.js';
+import { Marca } from './Cabecalho.js';
+import { IconeEmail, IconeWhatsapp } from './Icones.js';
+export function Rodape() {
+    const ano = new Date().getFullYear();
+    return (_jsx("footer", { className: "rodape", children: _jsxs("div", { className: "container", children: [_jsxs("div", { className: "rodape__topo", children: [_jsxs("div", { children: [_jsx(Marca, {}), _jsxs("p", { className: "rodape__assinatura", children: [empresa.assinatura, " \u2014 ", empresa.descricaoCurta] })] }), _jsxs("nav", { className: "rodape__nav", "aria-label": "Navega\u00E7\u00E3o do rodap\u00E9", children: [navegacao.map((item) => (_jsx("a", { href: `#${item.id}`, children: item.rotulo }, item.id))), _jsx("a", { href: "#contato", children: "Contato" })] })] }), _jsxs("div", { className: "rodape__base", children: [_jsx("p", { children: rodape.aviso }), _jsxs("div", { children: [_jsxs("p", { style: { display: 'flex', flexWrap: 'wrap', gap: '0.35rem 1.25rem' }, children: [_jsxs("a", { className: "link-sub", href: contatos.principal.whatsapp, target: "_blank", rel: "noopener noreferrer", children: [_jsx(IconeWhatsapp, { tamanho: 14 }), contatos.principal.telefoneExibicao] }), _jsxs("a", { className: "link-sub", href: `mailto:${contatos.email}`, children: [_jsx(IconeEmail, { tamanho: 14 }), contatos.email] })] }), _jsxs("p", { style: { marginTop: '0.9rem' }, children: ["\u00A9 ", ano, " ", empresa.nome, ". Todos os direitos reservados."] })] })] })] }) }));
+}
+//# sourceMappingURL=Rodape.js.map

@@ -1,0 +1,246 @@
+/* ==========================================================================
+   Cabeçalho e navegação
+   ========================================================================== */
+
+.cabecalho {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  transition: background-color 0.35s var(--curva), border-color 0.35s var(--curva),
+    backdrop-filter 0.35s var(--curva);
+  border-bottom: 1px solid transparent;
+}
+
+.cabecalho--fixo {
+  background: rgba(5, 7, 10, 0.82);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom-color: var(--linha);
+}
+
+.cabecalho__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 72px;
+}
+
+/* --- marca ---------------------------------------------------------------- */
+
+.marca {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.44rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding-block: 0.4rem;
+}
+
+.marca__kcm {
+  background: var(--gradiente-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.marca__sites {
+  color: var(--texto);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.marca__ponto {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--azul-eletrico);
+  align-self: center;
+  margin-left: 0.1rem;
+}
+
+/* --- navegação desktop ---------------------------------------------------- */
+
+.nav {
+  display: none;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.nav__link {
+  position: relative;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--texto-medio);
+  transition: color 0.25s var(--curva), background-color 0.25s var(--curva);
+}
+
+.nav__link:hover,
+.nav__link:focus-visible {
+  color: var(--texto);
+  background: rgba(245, 247, 250, 0.06);
+}
+
+.nav__link[aria-current='true'] {
+  color: var(--texto);
+}
+
+.nav__link[aria-current='true']::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  background: var(--gradiente);
+}
+
+.cabecalho__acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cabecalho__cta {
+  display: none;
+  padding: 0.7rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* --- botão do menu móvel -------------------------------------------------- */
+
+.menu-botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem 0.6rem 1rem;
+  background: rgba(245, 247, 250, 0.04);
+  border: 1px solid var(--linha-forte);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s var(--curva), border-color 0.25s var(--curva);
+}
+
+.menu-botao:hover {
+  background: rgba(245, 247, 250, 0.09);
+}
+
+.menu-botao__icone {
+  display: grid;
+  gap: 4px;
+  width: 16px;
+}
+
+.menu-botao__icone span {
+  display: block;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--texto);
+  transition: transform 0.3s var(--curva), opacity 0.2s var(--curva);
+}
+
+.menu-botao[aria-expanded='true'] .menu-botao__icone span:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+
+.menu-botao[aria-expanded='true'] .menu-botao__icone span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-botao[aria-expanded='true'] .menu-botao__icone span:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* --- painel do menu móvel ------------------------------------------------- */
+
+.menu-movel {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 96px var(--gutter) calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
+  background: rgba(5, 7, 10, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
+  animation: menu-entrar 0.32s var(--curva) both;
+}
+
+@keyframes menu-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.menu-movel__lista {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.menu-movel__link {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--linha);
+  font-size: clamp(1.45rem, 1.1rem + 2vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--texto);
+}
+
+.menu-movel__link span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--texto-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.menu-movel__rodape {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.menu-movel__contato {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.menu-movel__contato strong {
+  display: block;
+  color: var(--texto-medio);
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+
+  .cabecalho__cta {
+    display: inline-flex;
+  }
+
+  .menu-botao {
+    display: none;
+  }
+}
+
+/* Logo oficial fornecida pela KCM */
+.marca { align-items: center; }
+.marca__logo { width: 52px; height: 43px; object-fit: contain; flex-shrink: 0; margin-right: 5px; clip-path: inset(0 1px 2px 0); }
+@media (max-width: 599px) { .marca__logo { width: 43px; height: 36px; } }
+@media (min-width: 900px) and (max-width: 1199px) { .nav__link { padding-inline: .45rem; font-size: .82rem; } .cabecalho__cta { padding-inline: .8rem; } }
