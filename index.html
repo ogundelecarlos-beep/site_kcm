@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#05070A" />
+
+    <title>KCM SITES — Criação de sites personalizados para negócios</title>
+    <meta
+      name="description"
+      content="A KCM SITES cria sites personalizados para negócios de diferentes segmentos, com atendimento próximo e escopo alinhado antes do desenvolvimento. Atendemos todo o Brasil."
+    />
+    <meta name="author" content="KCM SITES" />
+
+    <!-- URLs absolutas geradas a partir de configuracao.urlSite (app/content/site.js) por tools/aplicar-url.mjs. -->
+    <link rel="canonical" href="https://site-kcm.vercel.app/" />
+    <meta property="og:url" content="https://site-kcm.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KCM SITES" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="KCM SITES — Keep Creating More" />
+    <meta
+      property="og:description"
+      content="Sites personalizados para negócios, com atendimento próximo e escopo alinhado antes do desenvolvimento."
+    />
+    <meta property="og:image" content="https://site-kcm.vercel.app/assets/compartilhamento.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="KCM SITES — Keep Creating More. Criação de sites personalizados para negócios."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KCM SITES — Keep Creating More" />
+    <meta
+      name="twitter:description"
+      content="Sites personalizados para negócios, com atendimento próximo e escopo alinhado antes do desenvolvimento."
+    />
+    <meta name="twitter:image" content="https://site-kcm.vercel.app/assets/compartilhamento.png" />
+
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+    <!-- Tipografia institucional. Para hospedar localmente, ver LEIA-ME.md. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/cabecalho.css" />
+    <link rel="stylesheet" href="/styles/abertura.css" />
+    <link rel="stylesheet" href="/styles/secoes.css" />
+    <link rel="stylesheet" href="/styles/briefing.css" />
+    <link rel="stylesheet" href="/styles/conversao.css" />
+
+    <!-- Sem JavaScript, o conteúdo pré-renderizado aparece sem a animação de entrada. -->
+    <noscript>
+      <style>
+        .revelar { opacity: 1; transform: none; }
+      </style>
+    </noscript>
+
+    <!-- Vercel Web Analytics (ativar em Analytics no painel da Vercel). Não carrega em localhost. -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      (function () {
+        if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = '/_vercel/insights/script.js';
+        document.head.appendChild(s);
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KCM SITES",
+        "slogan": "Keep Creating More",
+        "description": "Criação de sites personalizados para negócios.",
+        "url": "https://site-kcm.vercel.app/",
+        "logo": "https://site-kcm.vercel.app/assets/logo-kcm.png",
+        "image": "https://site-kcm.vercel.app/assets/compartilhamento.png",
+        "email": "siteskcm@gmail.com",
+        "telephone": "+55 11 99973-1375",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Brasil"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Modelo: o build (npm run build) preenche #raiz com a página pronta e troca os
+         estilos e o script abaixo pelos pacotes gerados em dist/. -->
+    <div id="raiz"></div>
+
+    <script type="module" src="/app/main.js"></script>
+  </body>
+</html>

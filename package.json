@@ -1,0 +1,16 @@
+{
+  "name": "site-kcm",
+  "private": true,
+  "type": "module",
+  "description": "Site da KCM SITES — pré-renderizado no build e publicado na Vercel.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "preview": "node tools/servidor.mjs",
+    "dev": "node tools/servidor.mjs --dev"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  }
+}

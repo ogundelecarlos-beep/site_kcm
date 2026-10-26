@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Conversão: projetos, depoimentos, redes sociais e WhatsApp flutuante
+   ========================================================================== */
+
+/* --- projetos ------------------------------------------------------------- */
+
+.projetos__grade {
+  display: grid;
+  gap: clamp(1.25rem, 0.8rem + 2vw, 2rem);
+  margin-top: clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+@media (min-width: 760px) {
+  .projetos__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .projetos__grade {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.projeto {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+  overflow: hidden;
+}
+
+.projeto__imagem {
+  aspect-ratio: 16 / 10;
+  background: var(--superficie-3);
+  border-bottom: 1px solid var(--linha);
+}
+
+.projeto__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projeto__corpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+}
+
+.projeto__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  font-size: var(--t-mini);
+  color: var(--texto-suave);
+}
+
+.projeto__tipo {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--linha-forte);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-medio);
+}
+
+.projeto__nome {
+  margin-top: 0.9rem;
+  font-size: var(--t-h3);
+  letter-spacing: -0.03em;
+}
+
+.projeto__descricao {
+  margin-top: 0.6rem;
+  color: var(--texto-suave);
+  line-height: 1.65;
+}
+
+.projeto__link {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  align-self: flex-start;
+}
+
+/* --- depoimentos ---------------------------------------------------------- */
+
+.depoimentos__grade {
+  display: grid;
+  gap: clamp(1.25rem, 0.8rem + 2vw, 2rem);
+  margin-top: clamp(2.25rem, 1.5rem + 2.5vw, 3.5rem);
+}
+
+@media (min-width: 760px) {
+  .depoimentos__grade {
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+}
+
+.depoimento {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.35rem, 1rem + 1.5vw, 1.9rem);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+}
+
+.depoimento__texto {
+  margin: 0;
+  color: var(--texto-medio);
+  line-height: 1.7;
+}
+
+.depoimento__texto p::before {
+  content: '“';
+}
+
+.depoimento__texto p::after {
+  content: '”';
+}
+
+.depoimento__autor {
+  margin-top: auto;
+  display: grid;
+  gap: 0.15rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.depoimento__autor strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+/* --- WhatsApp flutuante ----------------------------------------------------- */
+
+.whatsapp-flutuante {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  /* Abaixo do cabeçalho (100) e do menu do celular (99). */
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(37, 211, 102, 0.55), 0 2px 8px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s var(--curva), transform 0.3s var(--curva), visibility 0.3s,
+    background-color 0.25s var(--curva), color 0.25s var(--curva);
+}
+
+.whatsapp-flutuante--visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.whatsapp-flutuante:focus-visible {
+  outline: 2px solid var(--azul-eletrico);
+  outline-offset: 3px;
+}
+
+@media (min-width: 900px) {
+  .whatsapp-flutuante {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background: var(--superficie-3);
+    color: #25d366;
+    border: 1px solid var(--linha-forte);
+    box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.7);
+  }
+
+  .whatsapp-flutuante svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .whatsapp-flutuante--visivel {
+    opacity: 0.85;
+  }
+
+  .whatsapp-flutuante--visivel:hover,
+  .whatsapp-flutuante--visivel:focus-visible {
+    opacity: 1;
+    background: #25d366;
+    color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-flutuante {
+    transform: none;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+}

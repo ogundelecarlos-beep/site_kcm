@@ -1,0 +1,11 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { abertura, empresa } from '../content/site.js';
+import { useRevelar } from '../hooks/useRevelar.js';
+import { DemoConstrutor } from './DemoConstrutor.js';
+import { IconeMapa, IconeRelogio, IconeSeta } from './Icones.js';
+export function Abertura() {
+    const texto = useRevelar();
+    const demo = useRevelar();
+    return (_jsxs("section", { className: "abertura", id: "topo", "aria-labelledby": "abertura-titulo", children: [_jsxs("div", { className: "abertura__fundo", "aria-hidden": "true", children: [_jsx("span", { className: "brilho brilho--a" }), _jsx("span", { className: "brilho brilho--b" })] }), _jsx("div", { className: "abertura__malha", "aria-hidden": "true" }), _jsxs("div", { className: "container abertura__grade", children: [_jsxs("div", { ref: texto.ref, className: texto.className, children: [_jsxs("p", { className: "abertura__etiqueta", children: [_jsx("span", { className: "abertura__pulso", "aria-hidden": "true" }), abertura.etiqueta] }), _jsxs("h1", { className: "abertura__titulo", id: "abertura-titulo", children: [_jsx("span", { children: abertura.titulo[0] }), _jsx("span", { className: "destaque", children: abertura.titulo[1] }), _jsx("span", { children: abertura.titulo[2] })] }), _jsx("p", { className: "abertura__texto", children: abertura.texto }), _jsxs("div", { className: "abertura__acoes", children: [_jsxs("a", { className: "botao botao--primario", href: abertura.botaoPrimario.destino, children: [_jsx("span", { children: abertura.botaoPrimario.rotulo }), _jsx(IconeSeta, { className: "botao__seta" })] }), _jsx("a", { className: "botao botao--secundario", href: abertura.botaoSecundario.destino, children: _jsx("span", { children: abertura.botaoSecundario.rotulo }) })] }), _jsxs("p", { className: "abertura__rodape", children: [_jsxs("span", { children: [_jsx(IconeMapa, {}), empresa.atendimento] }), _jsxs("span", { children: [_jsx(IconeRelogio, { tamanho: 16 }), empresa.horario] })] })] }), _jsx("div", { ref: demo.ref, className: `abertura__demo ${demo.className}`, style: { transitionDelay: demo.visivel ? '0.12s' : '0s' }, children: _jsx(DemoConstrutor, {}) })] })] }));
+}
+//# sourceMappingURL=Abertura.js.map

@@ -1,0 +1,59 @@
+/* ==========================================================================
+   KCM SITES — tokens de identidade
+   Paleta e tipografia definidas no guia da marca.
+   ========================================================================== */
+
+:root {
+  /* Cores institucionais */
+  --preto: #05070a;
+  --azul-kcm: #1473e6;
+  --azul-eletrico: #00a8ff;
+  --azul-noturno: #0a2342;
+  --grafite: #151a21;
+  --branco-gelo: #f5f7fa;
+
+  --gradiente: linear-gradient(100deg, var(--azul-kcm) 0%, var(--azul-eletrico) 100%);
+  /* Variante usada quando há TEXTO envolvido (pintado com o gradiente ou sobre
+     ele). O ponto inicial é levemente mais claro para garantir contraste AA
+     — ver LEIA-ME.md, seção "Acessibilidade". */
+  --gradiente-texto: linear-gradient(100deg, #2a8ff0 0%, var(--azul-eletrico) 100%);
+
+  /* Derivados de superfície */
+  --superficie: #0a0d13;
+  --superficie-2: var(--grafite);
+  --superficie-3: #1b2029;
+  --linha: rgba(245, 247, 250, 0.09);
+  --linha-forte: rgba(245, 247, 250, 0.16);
+
+  /* Texto */
+  --texto: var(--branco-gelo);
+  --texto-medio: #b3c0d1;
+  --texto-suave: #8f9fb3;
+
+  /* Tipografia */
+  --fonte: 'Inter', 'Segoe UI', Roboto, -apple-system, 'Helvetica Neue', Arial,
+    sans-serif;
+
+  --t-display: clamp(2.3rem, 1.2rem + 3.25vw, 4.4rem);
+  --t-h2: clamp(1.75rem, 1.15rem + 2.3vw, 2.9rem);
+  --t-h3: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem);
+  --t-corpo-g: clamp(1.05rem, 0.98rem + 0.35vw, 1.225rem);
+  --t-corpo: clamp(0.975rem, 0.94rem + 0.18vw, 1.05rem);
+  --t-mini: 0.8125rem;
+
+  /* Espaço e ritmo */
+  --gutter: clamp(1.25rem, 0.6rem + 2.6vw, 3rem);
+  --largura: 1240px;
+  --secao-y: clamp(4.5rem, 2.5rem + 8vw, 9.5rem);
+  --raio: 18px;
+  --raio-sm: 11px;
+
+  /* Movimento */
+  --curva: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --curva-suave: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.55s;
+
+  color-scheme: dark;
+}
+
+/* O site é predominantemente escuro por definição da marca. */
